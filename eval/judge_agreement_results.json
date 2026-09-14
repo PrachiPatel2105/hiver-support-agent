@@ -1,0 +1,59 @@
+{
+  "n": 10,
+  "mae": 0.375,
+  "pearson_r": -0.171,
+  "spearman_r": 0.029,
+  "fraction_within_0.5": 0.9,
+  "pairs": [
+    {
+      "tweet_id": "119250",
+      "human": 4.25,
+      "judge": 4.25
+    },
+    {
+      "tweet_id": "119263",
+      "human": 3.5,
+      "judge": 4.0
+    },
+    {
+      "tweet_id": "119270",
+      "human": 4.0,
+      "judge": 3.75
+    },
+    {
+      "tweet_id": "119280",
+      "human": 4.0,
+      "judge": 4.0
+    },
+    {
+      "tweet_id": "119291",
+      "human": 5.0,
+      "judge": 3.75
+    },
+    {
+      "tweet_id": "119292",
+      "human": 3.5,
+      "judge": 4.0
+    },
+    {
+      "tweet_id": "119294",
+      "human": 4.25,
+      "judge": 4.25
+    },
+    {
+      "tweet_id": "119301",
+      "human": 3.5,
+      "judge": 4.0
+    },
+    {
+      "tweet_id": "119324",
+      "human": 3.5,
+      "judge": 4.0
+    },
+    {
+      "tweet_id": "119326",
+      "human": 3.75,
+      "judge": 4.0
+    }
+  ]
+}

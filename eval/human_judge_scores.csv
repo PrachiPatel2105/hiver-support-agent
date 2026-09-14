@@ -1,0 +1,11 @@
+tweet_id,human_grounded,human_actionable,human_tone,human_safe,human_overall,human_notes
+119250,3,5,4,5,4.25,"Asks a relevant question (which iPhone model) but doesn't mention 'slow' or the specific symptom -- moderately grounded."
+119263,2,3,4,5,3.5,"Fully generic boilerplate; never references apps breaking or wifi disconnecting. Only 'DM us' counts toward actionable, no direct question, so actionable is weaker than the offline judge gives it credit for."
+119270,3,4,4,5,4.0,"'these behaviors' is a vague callback but at least acknowledges something happened; asks for steps already tried, which is a genuinely useful question."
+119280,2,5,4,5,4.0,"Grounded on the wrong/generic pattern -- doesn't mention WhatsApp or music at all -- but the two diagnostic questions it does ask are still concretely actionable."
+119291,5,5,5,5,5.0,"Correctly recognizes nothing needs fixing and just thanks the customer. NOTE: the offline rubric scores 'actionable' low here (2/5) because it mechanically checks for a question mark or the word 'DM' -- but for an already-resolved message, NOT asking a diagnostic question is the right call. This is the clearest judge/human disagreement in the set (see judge_agreement.py)."
+119292,2,3,4,5,3.5,"Same generic 'thanks for reaching out, DM us' boilerplate as 119263/119301/119324 -- never mentions battery. Reads as a form letter."
+119294,3,5,4,5,4.25,"Doesn't say 'battery' explicitly but 'take a look' + two specific diagnostic questions read as engaged, not generic."
+119301,2,3,4,5,3.5,"Generic boilerplate again -- fine for a short, low-information customer message, but not meaningfully grounded in anything the customer said."
+119324,2,3,4,5,3.5,"Generic boilerplate a third time -- there is a real 'the agent falls back to the same canned line whenever grounding is weak' pattern here, see REPORT.md failure analysis."
+119326,1,5,4,5,3.75,"Actively grounded on the WRONG historical exchange: asks about Apple Music and WhatsApp pausing, which the customer never mentioned -- their issue is apps crashing/freezing. A human reading this would find it confusing, not just generic. The offline rubric can't tell 'no overlap' apart from 'wrong topic' and also scores this a 2, understating how bad this particular miss is."

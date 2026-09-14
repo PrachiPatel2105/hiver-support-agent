@@ -1,0 +1,232 @@
+{
+  "classification": [
+    {
+      "system": "trivial",
+      "task": "intent",
+      "accuracy": 0.471,
+      "macro_f1": 0.128
+    },
+    {
+      "system": "simple",
+      "task": "intent",
+      "accuracy": 0.941,
+      "macro_f1": 0.822
+    },
+    {
+      "system": "agent",
+      "task": "intent",
+      "accuracy": 0.941,
+      "macro_f1": 0.822
+    }
+  ],
+  "escalation": [
+    {
+      "system": "trivial",
+      "accuracy": 0.588,
+      "escalate_precision": 0.0,
+      "escalate_recall": 0.0
+    },
+    {
+      "system": "simple",
+      "accuracy": 0.706,
+      "escalate_precision": 1.0,
+      "escalate_recall": 0.286
+    },
+    {
+      "system": "agent",
+      "accuracy": 0.941,
+      "escalate_precision": 1.0,
+      "escalate_recall": 0.857
+    }
+  ],
+  "reply_quality": {
+    "n_scored": 10,
+    "mean_judge_overall": 4.0,
+    "mean_word_overlap_f1_vs_reference": 0.409
+  },
+  "reply_rows": [
+    {
+      "tweet_id": "119237",
+      "text": "@AppleSupport causing the reply to be disregarded and the tapped notification under the keyboard is opened\ud83d\ude21\ud83d\ude21\ud83d\ude21",
+      "gold_decision": "escalate",
+      "reference_reply": "@customer Sorry about that! Could you share a screenshot and tell us which iOS version you're on? Let's continue in DM so we can dig in.",
+      "agent_reply": "@customer We can help. Which version of iOS are you on? You can find that in Settings &gt; General &gt; About. Reply in DM. https://t.co/GDrqU22YpT",
+      "agent_decision": "escalate",
+      "llm_backend": "offline-template"
+    },
+    {
+      "tweet_id": "119249",
+      "text": "@105838 @AppleSupport Me too am suffering , hope the can find a solution",
+      "gold_decision": "escalate",
+      "reference_reply": "@105837 We can help. Which version of iOS are you on? You can find that in Settings &gt; General &gt; About. Reply in DM. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer Thanks for reaching out to us. We are always happy to help. Send us a DM so we can look into this together. https://t.co/GDrqU22YpT",
+      "agent_decision": "escalate",
+      "llm_backend": "offline-template"
+    },
+    {
+      "tweet_id": "119250",
+      "text": "@AppleSupport hi #apple, I\u2019ve a concern about the latest ios is too slow on #iphone6 and i am not happy with it. Any solution please?",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@customer We can help. Which version of iOS are you on? You can find that in Settings > General > About. Reply in DM.",
+      "agent_reply": "@customer Is there a particular app that seems to cause these issues more than others? What model iPhone are you using? Join us in DM. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 4.25,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.245
+    },
+    {
+      "tweet_id": "119253",
+      "text": "I just updated my phone and suddenly everything takes ages to load wtf @76099 this update sux I hate it fix it bye",
+      "gold_decision": "escalate",
+      "reference_reply": "@105839 Thanks for reaching out to us. We are always happy to help. Send us a DM so we can look into this together. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer Are you experiencing an issue with your device? If so, DM us with what's going on. We'll see how we can help from there. https://t.co/GDrqU22YpT",
+      "agent_decision": "escalate",
+      "llm_backend": "offline-template"
+    },
+    {
+      "tweet_id": "119263",
+      "text": "@AppleSupport after the 11.0.2 my phone just sucks most of the apps are broken, wifi disconnects frequently #apple #ios1102 #painfulupdate",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@105841 We'd love to help! Please DM us and let us know any steps you've tried since experiencing these behaviors. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer Thanks for reaching out to us. We are always happy to help. Send us a DM so we can look into this together. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 4.0,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.367
+    },
+    {
+      "tweet_id": "119268",
+      "text": "Okay @76099 I used my fucking phone for 2 minutes and it drains it down 8 fucking percent",
+      "gold_decision": "escalate",
+      "reference_reply": "@105843 Battery life is important, and we're here for you. DM us the iOS version your iPhone is running. We'll go from there. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer We'd like to help if we can. When did this start happening? Which version of iOS are you running currently?",
+      "agent_decision": "escalate",
+      "llm_backend": "offline-template"
+    },
+    {
+      "tweet_id": "119270",
+      "text": "@AppleSupport Can you get my iPhone 7plus back on the old iOS please?  Battery runs out in half the time, apps now frequently crash.",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@105844 Thanks for reaching out to us. We are always happy to help. Send us a DM so we can look into this together. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer We'd love to help! Please DM us and let us know any steps you've tried since experiencing these behaviors. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 3.75,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.367
+    },
+    {
+      "tweet_id": "119272",
+      "text": "You\u2019ve paralysed my phone with your update @76099 grrrrrrrrrr",
+      "gold_decision": "escalate",
+      "reference_reply": "@105844 We'd be happy to help. Send us a DM and we can start there. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer Are you experiencing an issue with your device? If so, DM us with what's going on. We'll see how we can help from there. https://t.co/GDrqU22YpT",
+      "agent_decision": "escalate",
+      "llm_backend": "offline-template"
+    },
+    {
+      "tweet_id": "119280",
+      "text": "So the new @76099 update does not let me listen to music and go on whatsapp at the same time?!?",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@105846 We'd like to help. What happens when you try to listen to Apple Music &amp; use WhatsApp? Does the music pause? Let us know in DM. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer We'd like to help if we can. When did this start happening? Which version of iOS are you running currently?",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 4.0,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.245
+    },
+    {
+      "tweet_id": "119290",
+      "text": "@AppleSupport Latest version \ud83d\ude21\ud83d\ude21 I have read the help page turned off virtually all apps and location svs too - but in typing this I dropped 3% life",
+      "gold_decision": "escalate",
+      "reference_reply": "@customer Sorry to hear the standard steps didn't help here -- since you've already tried disabling background apps and Location Services, let's dig deeper in DM.",
+      "agent_reply": "@customer Is there a particular app that seems to cause these issues more than others? What model iPhone are you using? Join us in DM. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template"
+    },
+    {
+      "tweet_id": "119291",
+      "text": "@AppleSupport Super help - problem solved \ud83d\ude00 once again in love with Apple",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@customer That's what we love to hear! Thanks for sticking with us \ud83d\ude0a",
+      "agent_reply": "@customer That's what we love to hear! Thanks for sticking with us.",
+      "agent_decision": "auto_handle",
+      "llm_backend": "template-positive-feedback",
+      "judge_overall": 3.75,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 1.0
+    },
+    {
+      "tweet_id": "119292",
+      "text": "@AppleSupport #ios11update - is still killing my battery within 12 hours - phone is 10 months old - it\u2019s a disgrace - used to get 2 days",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@105848 Let's take a look. What is the exact iOS you're using? Are you using any specific apps when noticing this? DM us your reply. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer Thanks for reaching out to us. We are always happy to help. Send us a DM so we can look into this together. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 4.0,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.407
+    },
+    {
+      "tweet_id": "119294",
+      "text": "Took my phone off charge at 7:20am. 8:03am - 60% battery remaining. @76099 plz I beg you, sort your battery life out\ud83d\ude29",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@105849 Thanks for reaching out to us. We are always happy to help. Send us a DM so we can look into this together. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer Let's take a look. What is the exact iOS you're using? Are you using any specific apps when noticing this? DM us your reply. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 4.25,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.407
+    },
+    {
+      "tweet_id": "119299",
+      "text": "@AppleSupport I need a new code for my I-store. I haven\u2019t recd any but msg is too many sent. Help!",
+      "gold_decision": "escalate",
+      "reference_reply": "@105851 We'd like to provide some assistance with this. Tell us more about the issue you're experiencing in DM. We'll go from there. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer We'd like to help. What happens when you try to listen to Apple Music &amp; use WhatsApp? Does the music pause? Let us know in DM. https://t.co/GDrqU22YpT",
+      "agent_decision": "escalate",
+      "llm_backend": "offline-template"
+    },
+    {
+      "tweet_id": "119301",
+      "text": "@76099 @AppleSupport fix this update. It\u2019s horrible",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@105852 Are you experiencing an issue with your device? If so, DM us with what's going on. We'll see how we can help from there. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer Thanks for reaching out to us. We are always happy to help. Send us a DM so we can look into this together. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 4.0,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.444
+    },
+    {
+      "tweet_id": "119324",
+      "text": "@AppleSupport I have the latest version iOS. It started immediately after I updated my phone.",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@105857 Is there a particular app that seems to cause these issues more than others? What model iPhone are you using? Join us in DM. https://t.co/GDrqU22YpT",
+      "agent_reply": "@customer Thanks for reaching out to us. We are always happy to help. Send us a DM so we can look into this together. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 4.0,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.364
+    },
+    {
+      "tweet_id": "119326",
+      "text": "My apps stop working without warning and my phone freezes every five minutes! Love the new update @76099!!!!",
+      "gold_decision": "auto_handle",
+      "reference_reply": "@105857 We'd like to help if we can. When did this start happening? Which version of iOS are you running currently?",
+      "agent_reply": "@customer We'd like to help. What happens when you try to listen to Apple Music &amp; use WhatsApp? Does the music pause? Let us know in DM. https://t.co/GDrqU22YpT",
+      "agent_decision": "auto_handle",
+      "llm_backend": "offline-template",
+      "judge_overall": 4.0,
+      "judge_backend": "offline-rubric",
+      "reply_vs_reference_word_f1": 0.245
+    }
+  ]
+}
