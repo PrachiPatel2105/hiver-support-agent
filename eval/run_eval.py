@@ -28,7 +28,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from sklearn.metrics import (
+    accuracy_score, f1_score, precision_score, recall_score,
+    classification_report, confusion_matrix,
+)
 
 from load_data import load_tweets, exchanges_for_brand
 from agent import build_index, run_agent, decide, draft_reply
@@ -127,7 +130,32 @@ def run() -> dict:
         f1 = f1_score(gold, preds, average="macro", zero_division=0)
         return {"system": name, "task": labels_key, "accuracy": round(acc, 3), "macro_f1": round(f1, 3)}
 
-    results = {"classification": [], "escalation": [], "reply_quality": {}, "reply_rows": reply_rows}
+    # Per-intent breakdown for the full agent (intent labels are identical for
+    # agent and simple since they share the same classifier, so we report once).
+    intent_labels = sorted(set(gold_intents))
+    per_intent = {}
+    for label in intent_labels:
+        p = precision_score(gold_intents, agent_intents, labels=[label], average="macro", zero_division=0)
+        r = recall_score(gold_intents, agent_intents, labels=[label], average="macro", zero_division=0)
+        f = f1_score(gold_intents, agent_intents, labels=[label], average="macro", zero_division=0)
+        support = gold_intents.count(label)
+        per_intent[label] = {
+            "precision": round(p, 3), "recall": round(r, 3),
+            "f1": round(f, 3), "support": support,
+        }
+
+    # Confusion matrix (agent)
+    all_labels = sorted(set(gold_intents + agent_intents))
+    cm = confusion_matrix(gold_intents, agent_intents, labels=all_labels).tolist()
+
+    results = {
+        "classification": [],
+        "per_intent_breakdown": per_intent,
+        "confusion_matrix": {"labels": all_labels, "matrix": cm},
+        "escalation": [],
+        "reply_quality": {},
+        "reply_rows": reply_rows,
+    }
 
     for name, preds in [("trivial", trivial_intents), ("simple", simple_intents), ("agent", agent_intents)]:
         results["classification"].append(clf_report(name, preds, "intent"))
@@ -175,6 +203,21 @@ if __name__ == "__main__":
     print("=== Intent classification ===")
     for r in results["classification"]:
         print(f"  {r['system']:8s} acc={r['accuracy']:.3f}  macro_f1={r['macro_f1']:.3f}")
+
+    print("\n=== Per-intent breakdown (agent / simple — same classifier) ===")
+    print(f"  {'intent':<22s} {'precision':>9} {'recall':>7} {'f1':>7} {'support':>8}")
+    print("  " + "-" * 57)
+    for intent, m in results["per_intent_breakdown"].items():
+        print(f"  {intent:<22s} {m['precision']:>9.3f} {m['recall']:>7.3f} {m['f1']:>7.3f} {m['support']:>8d}")
+
+    print("\n=== Confusion matrix (agent) ===")
+    labels = results["confusion_matrix"]["labels"]
+    cm_data = results["confusion_matrix"]["matrix"]
+    col_w = max(len(l) for l in labels) + 2
+    header = "pred →".ljust(col_w) + "".join(l[:col_w-1].ljust(col_w) for l in labels)
+    print("  " + header)
+    for label, row in zip(labels, cm_data):
+        print("  " + label[:col_w-1].ljust(col_w) + "".join(str(v).ljust(col_w) for v in row))
 
     print("\n=== Escalation decision ===")
     for r in results["escalation"]:

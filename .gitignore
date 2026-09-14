@@ -1,3 +1,17 @@
 __pycache__/
 *.pyc
 .venv/
+venv/
+
+# Secrets / credentials — never commit these
+.env
+.env.*
+*.env
+.kaggle/
+kaggle.json
+*.pem
+*.key
+*_rsa
+*_dsa
+secrets.json
+credentials.json

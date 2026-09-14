@@ -7,11 +7,13 @@ Run standalone: `python3 src/agent.py "some customer tweet text"`
 """
 from __future__ import annotations
 
+import os
 import re
 import sys
 from dataclasses import dataclass, asdict
 
-sys.path.insert(0, __file__.rsplit("/", 1)[0])
+# Use os.path so this works on both Unix (/) and Windows (\).
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from intents import rule_based_intent, INTENTS
 from retrieval import ExchangeIndex, RetrievalHit

@@ -4,6 +4,14 @@
   "pearson_r": -0.171,
   "spearman_r": 0.029,
   "fraction_within_0.5": 0.9,
+  "interpretation": {
+    "pearson_near_zero_reason": "Score range is only 1.5 pts (3.5-5.0 on a 1-5 scale); correlation is sensitive to rank order, not absolute error. MAE and within-0.5 are more informative here.",
+    "judge_validation_status": "Self-consistency check only \u2014 same person built both judge and golden labels. Not validated against an independent annotator.",
+    "known_rubric_weaknesses": [
+      "actionable axis rewards '?' or 'DM' even when asking a question is wrong (e.g. tweet 119291, already-resolved message)",
+      "grounded axis uses lexical overlap and cannot detect topically wrong grounding (e.g. tweet 119326, Music/WhatsApp reply to a freezing complaint)"
+    ]
+  },
   "pairs": [
     {
       "tweet_id": "119250",
